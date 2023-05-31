@@ -1,0 +1,20 @@
+--- a/.src/FMain.form
++++ b/.src/FMain.form
+@@ -3,7 +3,7 @@
+ { Form Form
+   MoveScaled(178.5714,100,36,14)
+   ToolTip = ("Click Tray for Hide")
+-  Icon = Picture["dnfdrake.svg"]
++  Icon = Picture["dnfdraketray.svg"]
+   Resizable = False
+   Border = False
+   { TXTMESSAGE Label
+@@ -21,7 +21,7 @@
+   }
+   { !TrayIcon1 #TrayIcon
+     #Public = True
+-    Picture = Picture.Load("dnfdrake.svg")
++    Picture = Picture.Load("dnfdraketray.svg")
+   }
+   { TMRSTART #Timer
+     #MoveScaled(27,0)

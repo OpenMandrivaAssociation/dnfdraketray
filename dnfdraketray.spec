@@ -1,15 +1,16 @@
-#global gb3_ver %(gbc3 -V)
-%global gb3_ver 3.18.2
+%global gb3_ver %(gbc3 -V || echo 3.18.2)
 
 Summary:	Icon tray for dnfdrake
 Name:		dnfdraketray
 Version:	2.0.8
-Release:	1
+Release:	2
 License:	GPLv3
 Group:		Graphical desktop/KDE
 URL:		https://mib.pianetalinux.org
 #URL:		https://github.com/astrgl/dnfdraketray
 Source0:	https://github.com/astrgl/dnfdraketray/archive/%{version}/%{name}-%{version}.tar.gz
+Patch0:		dnfdraketray-2.0.8-fix_icon_name.patch
+#Patch1:		dnfdraketray-2.0.8-fix_desktop_file.patch
 
 BuildRequires:	gambas3-devel
 BuildRequires:	gambas3-gb-dbus
@@ -43,7 +44,7 @@ BuildArch: noarch
 %license FILE-EXTRA/license
 %{_bindir}/%{name}.gambas
 %{_datadir}/%{name}/*
-#{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/%{name}.xpm
 %{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_iconsdir}/hicolor/*/apps/%{name}.svg
@@ -56,7 +57,7 @@ Icon tray for dnfdrake.
 %prep
 %autosetup -p1
 
-# fix icon manf
+# fix icon name according to Patch0
 mv dnfdrake.svg %{name}.svg
 
 %build
@@ -74,7 +75,7 @@ install -Dm 0755 %{name}.gambas -t %{buildroot}/%{_bindir}/
 install -Dm 0644 ICONS-EXTRA/* -t %{buildroot}/%{_datadir}/%{name}/ICONS-EXTRA/
 
 #.desktop
-#install -Dm 0755 FILE-EXTRA/%{name}.desktop -t %{buildroot}/%{_datadir}/applications
+install -Dm 0755 FILE-EXTRA/%{name}.desktop -t %{buildroot}/%{_datadir}/applications
 
 # icons
 install -Dm 0644 %{name}.svg -t %{buildroot}%{_iconsdir}/hicolor/scalable/apps/

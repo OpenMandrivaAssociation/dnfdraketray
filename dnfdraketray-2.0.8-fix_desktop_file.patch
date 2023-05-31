@@ -1,0 +1,12 @@
+--- a/FILE-EXTRA/dnfdraketray.desktop
++++ b/FILE-EXTRA/dnfdraketray.desktop
+@@ -1,7 +1,8 @@
+ [Desktop Entry]
+ Exec=/usr/bin/dnfdraketray.gambas
+-Icon=
++Icon=dnfdraketray.svg
+ Name=dnfdraketray.gambas
+ Path=
+ Terminal=False
++Categories=System;Utility;PackageManager;
+ Type=Application
