@@ -9,8 +9,9 @@ Group:		Graphical desktop/KDE
 URL:		https://mib.pianetalinux.org
 #URL:		https://github.com/astrgl/dnfdraketray
 Source0:	https://github.com/astrgl/dnfdraketray/archive/%{version}/%{name}-%{version}.tar.gz
-Patch0:		dnfdraketray-2.0.8-fix_icon_name.patch
+#Patch0:		dnfdraketray-2.0.8-fix_icon_name.patch
 #Patch1:		dnfdraketray-2.0.8-fix_desktop_file.patch
+Patch2:		dnfdraketray-2.0.8-fix_icon_path.patch
 
 BuildRequires:	gambas3-devel
 BuildRequires:	gambas3-gb-dbus
@@ -44,10 +45,11 @@ BuildArch: noarch
 %license FILE-EXTRA/license
 %{_bindir}/%{name}.gambas
 %{_datadir}/%{name}/*
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/%{name}.xpm
-%{_iconsdir}/hicolor/*/apps/%{name}.png
+#{_datadir}/pixmaps/%{name}.xpm
+#{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_iconsdir}/hicolor/*/apps/%{name}.svg
+#{_datadir}/dnfdrake/ICONS-EXTRA/
+%{_datadir}/dnfdrake/%{name}.desktop
 
 #---------------------------------------------------------------------------
 
@@ -73,18 +75,19 @@ install -Dm 0755 %{name}.gambas -t %{buildroot}/%{_bindir}/
 
 # data files
 install -Dm 0644 ICONS-EXTRA/* -t %{buildroot}/%{_datadir}/%{name}/ICONS-EXTRA/
+#install -Dm 0644 ICONS-EXTRA/* -t %{buildroot}/%{_datadir}/dnfdrake/ICONS-EXTRA/
 
-#.desktop
-install -Dm 0755 FILE-EXTRA/%{name}.desktop -t %{buildroot}/%{_datadir}/applications
+#.desktop used by dnfdrake
+install -Dm 0755 FILE-EXTRA/%{name}.desktop -t %{buildroot}/%{_datadir}/dnfdrake/
 
 # icons
 install -Dm 0644 %{name}.svg -t %{buildroot}%{_iconsdir}/hicolor/scalable/apps/
-for d in 16 32 48 64 72 128 256 512
-do
-	install -dm 0755 %{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/
-	convert -background none -scale ${d}x${d} %{name}.svg \
-			%{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/%{name}.png
-done
-install -dm 0755 %{buildroot}%{_datadir}/pixmaps/
-convert -scale 32x32 %{name}.svg %{buildroot}%{_datadir}/pixmaps/%{name}.xpm
+#for d in 16 32 48 64 72 128 256 512
+#do
+#	install -dm 0755 %{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/
+#	convert -background none -scale ${d}x${d} %{name}.svg \
+#			%{buildroot}%{_iconsdir}/hicolor/${d}x${d}/apps/%{name}.png
+#done
+#install -dm 0755 %{buildroot}%{_datadir}/pixmaps/
+#convert -scale 32x32 %{name}.svg %{buildroot}%{_datadir}/pixmaps/%{name}.xpm
 

@@ -1,0 +1,20 @@
+--- a/.src/FMain.form
++++ b/.src/FMain.form
+@@ -21,7 +21,7 @@
+   }
+   { !TrayIcon1 #TrayIcon
+     #Public = True
+-    Picture = Picture.Load("dnfdrake.svg")
++    Picture = Picture.Load("icon:/scalable/dnfdraketray.svg")
+   }
+   { TMRSTART #Timer
+     #MoveScaled(27,0)
+@@ -33,7 +33,7 @@
+   { BTNDNFDRAKE Button
+     MoveScaled(5,9,5,4)
+     ToolTip = ("Launch DnfDrake")
+-    Picture = Picture["ICONS-EXTRA/dnfdrake16X16.png"]
++    Picture = Picture["/usr/share/dnfdraketray/ICONS-EXTRA/dnfdrake16X16.png"]
+   }
+   { BTNCLOSE Button
+     MoveScaled(26,9,5,4)
