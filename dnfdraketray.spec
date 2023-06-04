@@ -3,15 +3,12 @@
 Summary:	Icon tray for dnfdrake
 Name:		dnfdraketray
 Version:	2.0.8
-Release:	3
+Release:	4
 License:	GPLv3
 Group:		Graphical desktop/KDE
 URL:		https://mib.pianetalinux.org
 #URL:		https://github.com/astrgl/dnfdraketray
 Source0:	https://github.com/astrgl/dnfdraketray/archive/%{version}/%{name}-%{version}.tar.gz
-#Patch0:		dnfdraketray-2.0.8-fix_icon_name.patch
-#Patch1:		dnfdraketray-2.0.8-fix_desktop_file.patch
-#Patch2:		dnfdraketray-2.0.8-fix_icon_path.patch
 
 BuildRequires:	gambas3-devel
 BuildRequires:	gambas3-gb-dbus
@@ -38,6 +35,8 @@ Requires:	gambas3-gb-qt5
 Requires:	lsb-release
 Requires:	python-dnf-plugin-versionlock
 Requires:	xrandr
+
+Suggests:	dnfdrake
 
 BuildArch: noarch
 
