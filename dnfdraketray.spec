@@ -3,7 +3,7 @@
 Summary:	Icon tray for dnfdrake
 Name:		dnfdraketray
 Version:	2.0.8
-Release:	4
+Release:	5
 License:	GPLv3
 Group:		Graphical desktop/KDE
 URL:		https://mib.pianetalinux.org
@@ -43,7 +43,7 @@ BuildArch: noarch
 %files
 %license FILE-EXTRA/license
 %{_bindir}/%{name}.gambas
-%{_datadir}/dnfdrake/%{name}.desktop
+%{_datadir}/%{name}/%{name}.desktop
 
 #---------------------------------------------------------------------------
 
@@ -65,5 +65,5 @@ mv %{name}-%{version}.gambas %{name}.gambas
 install -Dm 0755 %{name}.gambas -t %{buildroot}/%{_bindir}/
 
 #.desktop used by dnfdrake
-install -Dm 0755 FILE-EXTRA/%{name}.desktop -t %{buildroot}/%{_datadir}/dnfdrake/
+install -Dm 0755 FILE-EXTRA/%{name}.desktop -t %{buildroot}/%{_datadir}/%{name}/
 
