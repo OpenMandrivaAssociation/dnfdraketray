@@ -1,9 +1,9 @@
-%global gb3_ver %(gbc3 -V || echo 3.18.2)
+%global gb3_ver %(gbc3 -V |cut -d" " -f1 || echo 3.18.3)
 
 Summary:	Icon tray for dnfdrake
 Name:		dnfdraketray
 Version:	2.0.8
-Release:	5
+Release:	6
 License:	GPLv3
 Group:		Graphical desktop/KDE
 URL:		https://mib.pianetalinux.org
@@ -18,7 +18,6 @@ BuildRequires:	gambas3-gb-gtk3
 BuildRequires:	gambas3-gb-gui
 BuildRequires:	gambas3-gb-image
 BuildRequires:	gambas3-gb-qt5
-BuildRequires:	imagemagick
 
 Requires:	sudo
 Requires:	createrepo_c
