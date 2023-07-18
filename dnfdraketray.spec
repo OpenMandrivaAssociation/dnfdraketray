@@ -1,10 +1,10 @@
-#global gb3_ver %((gbcw3 -V |cut -d" " -f1) || echo 3.18.3)
+#global gb3_ver %%((gbcw3 -V |cut -d" " -f1) || echo 3.18.3)
 %global gb3_ver 3.18.3
 
 Summary:	Icon tray for dnfdrake
 Name:		dnfdraketray
-Version:	2.0.8
-Release:	6
+Version:	2.0.9
+Release:	1
 License:	GPLv3
 Group:		Graphical desktop/KDE
 URL:		https://mib.pianetalinux.org
