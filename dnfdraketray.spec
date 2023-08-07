@@ -40,15 +40,15 @@ Suggests:	dnfdrake
 
 BuildArch: noarch
 
+%description
+Icon tray for dnfdrake.
+
 %files
 %license FILE-EXTRA/license
 %{_bindir}/%{name}.gambas
 %{_datadir}/%{name}/%{name}.desktop
 
 #---------------------------------------------------------------------------
-
-%description
-Icon tray for dnfdrake.
 
 %prep
 %autosetup -p1
